@@ -7,216 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-     <style>
-        :root {
-            --primary-color: #4361ee;
-            --secondary-color: #3f37c9;
-            --accent-color: #4cc9f0;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --success-color: #4bb543;
-            --danger-color: #ff3333;
-            --warning-color: #ffc107;
-            --info-color: #17a2b8;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-            color: var(--dark-color);
-        }
-        
-        .glass-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 15px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            transition: all 0.3s ease;
-        }
-        
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
-        }
-        
-        .navbar-brand {
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            transition: all 0.3s;
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-        
-        .form-control, .form-select {
-            border-radius: 10px;
-            padding: 12px 15px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-        }
-        
-        .form-control:focus, .form-select:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
-        }
-        
-        #expenses-list {
-            max-height: 500px;
-            overflow-y: auto;
-        }
-        
-        .expense-item {
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.7);
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .expense-item:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateX(5px);
-        }
-        
-        .expense-category {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-right: 10px;
-        }
-        
-        .category-food {
-            background-color: rgba(75, 181, 67, 0.2);
-            color: var(--success-color);
-        }
-        
-        .category-transportation {
-            background-color: rgba(255, 193, 7, 0.2);
-            color: var(--warning-color);
-        }
-        
-        .category-bank {
-            background-color: rgba(23, 162, 184, 0.2);
-            color: var(--info-color);
-        }
-        
-        .category-other {
-            background-color: rgba(108, 117, 125, 0.2);
-            color: var(--dark-color);
-        }
-        
-        .expense-amount {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        .payment-method {
-            font-size: 0.9rem;
-            color: #6c757d;
-        }
-        
-        .stats-card {
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .stats-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stats-value {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-        
-        .stats-label {
-            font-size: 0.9rem;
-            color: #6c757d;
-        }
-        
-        .total-expenses {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.7);
-        }
-        
-        .chart-container {
-            height: 300px;
-            position: relative;
-        }
-        
-        .badge-pill {
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-weight: 500;
-        }
-        
-        .animate-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.05);
-            border-radius: 10px;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: rgba(67, 97, 238, 0.5);
-            border-radius: 10px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-color);
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .expense-item {
-                padding: 10px;
-            }
-            
-            .expense-amount {
-                font-size: 1rem;
-            }
-            
-            .stats-value {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
@@ -224,26 +15,15 @@
             <a class="navbar-brand" href="#">
                 <i class="fas fa-wallet me-2"></i>Smart Expense Tracker
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button id="dark-mode-toggle" class="btn btn-sm ms-2">
+                <i class="fas fa-moon"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fas fa-home me-1"></i> Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#reports"><i class="fas fa-chart-pie me-1"></i> Reports</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#settings"><i class="fas fa-cog me-1"></i> Settings</a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </nav>
 
     <div class="container mb-5">
+        <div id="alerts-container"></div>
+
         <div class="row mb-4">
             <div class="col-md-4 animate-in" style="animation-delay: 0.1s;">
                 <div class="glass-card stats-card">
@@ -268,6 +48,40 @@
             </div>
         </div>
 
+        <!-- Budget Overview Section -->
+        <div class="glass-card p-4 mb-4">
+            <h2><i class="fas fa-wallet me-2"></i> Budget Overview</h2>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="monthly-budget" class="form-label">Monthly Budget (₹)</label>
+                    <input type="number" id="monthly-budget" class="form-control" value="50000" min="0">
+                </div>
+                <div class="col-md-6">
+                    <div class="budget-progress mt-4">
+                        <div class="d-flex justify-content-between">
+                            <span>Spent: ₹<span id="total-spent">0</span></span>
+                            <span>Remaining: ₹<span id="remaining-budget">50000</span></span>
+                        </div>
+                        <div class="progress mt-2">
+                            <div id="budget-progress-bar" class="progress-bar" 
+                                 role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" 
+                                 style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card p-4 mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4><i class="fas fa-bullseye me-2"></i> Savings Goals</h4>
+                <button class="btn btn-sm btn-primary" id="add-goal-btn">
+                    <i class="fas fa-plus me-1"></i> Add Goal
+                </button>
+            </div>
+            <div id="goals-list"></div>
+        </div>
+
         <div class="row g-4">
             <div class="col-lg-6 animate-in" style="animation-delay: 0.4s;">
                 <div class="glass-card p-4 h-100">
@@ -276,6 +90,10 @@
                         <div class="mb-3">
                             <label for="date" class="form-label">Date</label>
                             <input type="date" id="date" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" id="description" class="form-control" placeholder="e.g. Dinner at restaurant">
                         </div>
                         <div class="mb-3">
                             <label for="category" class="form-label">Category</label>
@@ -310,10 +128,6 @@
                         <div class="mb-3">
                             <label for="amount" class="form-label">Amount (₹)</label>
                             <input type="number" id="amount" class="form-control" min="1" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="description" class="form-label">Description (Optional)</label>
-                            <input type="text" id="description" class="form-control" placeholder="e.g. Dinner at restaurant">
                         </div>
                         <div class="mb-3">
                             <label for="payment-source" class="form-label">Payment Method</label>
@@ -384,9 +198,7 @@
                         </div>
                     </div>
                     
-                    <div id="expenses-list">
-                        <!-- Expenses will be loaded here -->
-                    </div>
+                    <div id="expenses-list"></div>
                     
                     <div class="total-expenses mt-3" id="total-expenses">
                         Total Expenses: ₹0
@@ -395,29 +207,58 @@
             </div>
         </div>
         
-        <div class="row mt-4 animate-in" style="animation-delay: 0.6s;" id="reports">
-            <div class="col-12">
-                <div class="glass-card p-4">
-                    <h4 class="mb-4"><i class="fas fa-chart-pie me-2"></i>Expense Analytics</h4>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="chart-container">
-                                <canvas id="categoryChart"></canvas>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="chart-container">
-                                <canvas id="monthlyTrendChart"></canvas>
-                            </div>
-                        </div>
+<!-- Replace your existing analytics section with this -->
+<div class="row mt-4 animate-in" style="animation-delay: 0.6s;" id="reports">
+    <div class="col-12">
+        <div class="glass-card p-4">
+            <h4 class="mb-4"><i class="fas fa-chart-pie me-2"></i>Expense Analytics</h4>
+            
+            <!-- First Row: Category and Monthly Trends -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="chart-container">
+                        <canvas id="monthlyTrendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Row: Heatmap and Yearly Trends - Now in one line -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-center mb-3"><i class="fas fa-calendar-week me-2"></i>Weekly Spending</h5>
+                    <div class="chart-container" style="height: 250px;">
+                        <canvas id="heatmapChart"></canvas>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div class="row mt-5 animate-in" style="animation-delay: 0.7s;">
+    <div class="col-12">
+        <div class="glass-card p-4">
+            <h4><i class="fas fa-camera me-2"></i> Receipt Capture</h4>
+            <div class="text-center">
+                <div id="receipt-preview" class="mb-3" style="display:none;">
+                    <img id="receipt-image" src="#" alt="Receipt" class="img-fluid rounded" style="max-height: 200px;">
+                </div>
+                <input type="file" id="receipt-upload" accept="image/*" capture="environment" style="display:none;">
+                <button class="btn btn-primary" id="capture-receipt-btn">
+                    <i class="fas fa-camera me-2"></i> Capture Receipt
+                </button>
+                <div id="receipt-ocr-result" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- Expense Details Modal -->
-    <div class="modal fade" id="expense-details-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="expense-details-modal" tabindex="-1" aria-labelledby="expenseDetailsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content glass-card">
                 <div class="modal-header border-0">
@@ -468,7 +309,7 @@
     </div>
 
     <!-- Edit Expense Modal -->
-    <div class="modal fade" id="edit-expense-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="edit-expense-modal" tabindex="-1" aria-labelledby="editExpenseModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content glass-card">
                 <div class="modal-header border-0">
@@ -555,623 +396,96 @@
         </div>
     </div>
 
+<!-- Add Goal Modal -->
+<div class="modal fade" id="add-goal-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content glass-card">
+        <div class="modal-header">
+          <h5 class="modal-title">Add New Goal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+            <form id="add-goal-form">
+                <div class="mb-3">
+                    <label class="form-label">Goal Name</label>
+                    <input type="text" class="form-control" id="goal-name" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Target Amount (₹)</label>
+                    <input type="number" class="form-control" id="goal-target" min="1" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Currently Saved (₹)</label>
+                    <input type="number" class="form-control" id="goal-saved" min="0">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Target Date</label>
+                    <input type="date" class="form-control" id="goal-deadline" required>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" id="confirm-add-goal" class="btn btn-primary">Add Goal</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Edit Goal Modal -->
+<div class="modal fade" id="edit-goal-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Goal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="edit-goal-form">
+                    <input type="hidden" id="edit-goal-id">
+                    <div class="mb-3">
+                        <label class="form-label">Goal Name</label>
+                        <input type="text" class="form-control" id="edit-goal-name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Target Amount (₹)</label>
+                        <input type="number" class="form-control" id="edit-goal-target" min="1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Currently Saved (₹)</label>
+                        <input type="number" class="form-control" id="edit-goal-saved" min="0">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Target Date</label>
+                        <input type="date" class="form-control" id="edit-goal-deadline" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" id="confirm-edit-goal" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer mt-auto py-3 bg-dark">
+    <div class="container text-center">
+      <span class="text-light">Made with <i class="fas fa-heart text-danger"></i> by </span>
+      <span class="developer-name animate__animated animate__fadeIn">
+        Kuldip Gaj2ar
+      </span>
+    </div>
+  </footer>
+  
+  <style>
+  .developer-name {
+    color: #4fc3f7;
+    font-weight: bold;
+  }
+  </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.js"></script>
-    <script>
-        // Enhanced Expense Tracker with additional features
-        let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-        let currentEditingId = null;
-        let categoryChart = null;
-        let monthlyTrendChart = null;
-
-        // Initialize the app
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set default date to today
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('date').value = today;
-            
-            // Initialize charts
-            initCharts();
-            
-            // Display initial data
-            updateDashboard();
-            displayExpensesList();
-            
-            // Set up event listeners
-            setupEventListeners();
-        });
-
-        function setupEventListeners() {
-            // Category change for bank field visibility
-            document.getElementById('category').addEventListener('change', function(e) {
-                document.getElementById('bank-field').style.display = 
-                    e.target.value === 'Bank Transfer' ? 'block' : 'none';
-            });
-            
-            // Payment source change for UPI bank field visibility
-            document.getElementById('payment-source').addEventListener('change', function(e) {
-                document.getElementById('upi-bank-field').style.display = 
-                    e.target.value === 'UPI' ? 'block' : 'none';
-            });
-            
-            // Add expense form submission
-            document.getElementById('add-expense-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                addExpense();
-            });
-            
-            // Filter changes
-            document.getElementById('category-filter').addEventListener('change', displayExpensesList);
-            document.getElementById('start-date').addEventListener('change', displayExpensesList);
-            document.getElementById('end-date').addEventListener('change', displayExpensesList);
-            
-            // Export button
-            document.getElementById('export-btn').addEventListener('click', exportExpenses);
-            
-            // Save edited expense
-            document.getElementById('save-expense-button').addEventListener('click', saveEditedExpense);
-        }
-
-        function addExpense() {
-            const date = document.getElementById('date').value;
-            const category = document.getElementById('category').value;
-            const bank = document.getElementById('bank').value;
-            const upiBank = document.getElementById('upi-bank').value;
-            const amount = parseFloat(document.getElementById('amount').value);
-            const description = document.getElementById('description').value;
-            const paymentSource = document.getElementById('payment-source').value;
-            
-            const newExpense = { 
-                id: Date.now(), // Unique ID for each expense
-                date, 
-                category, 
-                bank, 
-                upiBank, 
-                amount, 
-                description,
-                paymentSource 
-            };
-            
-            expenses.push(newExpense);
-            saveExpenses();
-            
-            // Reset form
-            document.getElementById('add-expense-form').reset();
-            document.getElementById('date').value = new Date().toISOString().split('T')[0];
-            document.getElementById('bank-field').style.display = 'none';
-            document.getElementById('upi-bank-field').style.display = 'none';
-            
-            // Update UI
-            updateDashboard();
-            displayExpensesList();
-            
-            // Show success feedback
-            showToast('Expense added successfully!', 'success');
-        }
-
-        function animatePaymentFlow(source, amount) {
-            new PaymentFlowAnimation({
-                fromElement: source,
-                toElement: '#expenses-total',
-                amount: amount
-            }).play();
-            }
-
-        function displayExpensesList() {
-            const categoryFilter = document.getElementById('category-filter').value;
-            const startDate = document.getElementById('start-date').value;
-            const endDate = document.getElementById('end-date').value;
-            
-            const filteredExpenses = expenses.filter(expense => {
-                const matchesCategory = !categoryFilter || expense.category === categoryFilter;
-                const matchesStartDate = !startDate || expense.date >= startDate;
-                const matchesEndDate = !endDate || expense.date <= endDate;
-                return matchesCategory && matchesStartDate && matchesEndDate;
-            });
-            
-            const expensesList = document.getElementById('expenses-list');
-            expensesList.innerHTML = '';
-            
-            if (filteredExpenses.length === 0) {
-                expensesList.innerHTML = `
-                    <div class="text-center py-4 text-muted">
-                        <i class="fas fa-receipt fa-3x mb-3"></i>
-                        <p>No expenses found</p>
-                    </div>
-                `;
-                document.getElementById('total-expenses').textContent = 'Total Expenses: ₹0';
-                updateCharts();
-                return;
-            }
-            
-            // Sort by date (newest first)
-            filteredExpenses.sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            filteredExpenses.forEach(expense => {
-                const expenseDate = new Date(expense.date);
-                const formattedDate = expenseDate.toLocaleDateString('en-IN', {
-                    day: '2-digit',
-                    month: 'short',
-                    year: 'numeric'
-                });
-                
-                const categoryClass = getCategoryClass(expense.category);
-                
-                const expenseItem = document.createElement('div');
-                expenseItem.className = 'expense-item';
-                expenseItem.innerHTML = `
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <span class="expense-category ${categoryClass}">
-                                ${expense.category}
-                            </span>
-                            <span class="text-muted small">${formattedDate}</span>
-                        </div>
-                        <div class="expense-amount text-primary">
-                            ₹${expense.amount.toLocaleString('en-IN')}
-                        </div>
-                    </div>
-                    ${expense.description ? `<div class="mt-2 small text-muted">${expense.description}</div>` : ''}
-                    <div class="d-flex justify-content-between align-items-center mt-2">
-                        <span class="payment-method small">
-                            <i class="fas fa-${getPaymentIcon(expense.paymentSource)} me-1"></i>
-                            ${expense.paymentSource}
-                        </span>
-                        <button class="btn btn-sm btn-outline-primary view-details-btn" 
-                                data-id="${expense.id}" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#expense-details-modal">
-                            <i class="fas fa-eye me-1"></i>Details
-                        </button>
-                    </div>
-                `;
-                expensesList.appendChild(expenseItem);
-            });
-            
-            // Calculate and display total
-            const total = filteredExpenses.reduce((sum, expense) => sum + expense.amount, 0);
-            document.getElementById('total-expenses').textContent = 
-                `Total Expenses: ₹${total.toLocaleString('en-IN')}`;
-            
-            // Update charts
-            updateCharts();
-            
-            // Set up event listeners for detail buttons
-            document.querySelectorAll('.view-details-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const expenseId = parseInt(this.getAttribute('data-id'));
-                    showExpenseDetails(expenseId);
-                });
-            });
-        }
-
-function showExpenseDetails(expenseId) {
-    const expense = expenses.find(e => e.id === expenseId);
-    if (!expense) return;
-    
-    // Initialize modals if not already done
-    if (!detailsModal) {
-        detailsModal = new bootstrap.Modal(document.getElementById('expense-details-modal'));
-    }
-    if (!editModal) {
-        editModal = new bootstrap.Modal(document.getElementById('edit-expense-modal'));
-    }
-    
-    const expenseDate = new Date(expense.date);
-    const formattedDate = expenseDate.toLocaleDateString('en-IN', {
-        weekday: 'long',
-        day: '2-digit',
-        month: 'long',
-        year: 'numeric'
-    });
-    
-    document.getElementById('expense-details-date').textContent = formattedDate;
-    document.getElementById('expense-details-category').textContent = expense.category;
-    document.getElementById('expense-details-amount').textContent = 
-        `₹${expense.amount.toLocaleString('en-IN')}`;
-    document.getElementById('expense-details-description').textContent = 
-        expense.description || 'No description';
-    document.getElementById('expense-details-payment-source').textContent = expense.paymentSource;
-    
-    // Show/hide bank details based on payment method
-    const bankContainer = document.getElementById('expense-details-bank-container');
-    const upiContainer = document.getElementById('expense-details-upi-container');
-    
-    if (expense.category === 'Bank Transfer' && expense.bank) {
-        bankContainer.style.display = 'block';
-        document.getElementById('expense-details-bank').textContent = expense.bank;
-    } else {
-        bankContainer.style.display = 'none';
-    }
-    
-    if (expense.paymentSource === 'UPI' && expense.upiBank) {
-        upiContainer.style.display = 'block';
-        document.getElementById('expense-details-upi-bank').textContent = expense.upiBank;
-    } else {
-        upiContainer.style.display = 'none';
-    }
-    
-    // Initialize modals
-    const detailsModal = new bootstrap.Modal(document.getElementById('expense-details-modal'));
-    const editModal = new bootstrap.Modal(document.getElementById('edit-expense-modal'));
-    
-    // Set up edit button
-    document.getElementById('edit-expense-button').onclick = () => {
-        detailsModal.hide();
-        editExpense(expense.id);
-    };
-    
-    document.getElementById('delete-expense-button').onclick = () => {
-        if (confirm('Are you sure you want to delete this expense?')) {
-            deleteExpense(expense.id);
-            detailsModal.hide();
-        }
-    };
-    
-    // Show the details modal
-    detailsModal.show();
-}
-
-// Global modal instances
-let detailsModal, editModal;
-
-function showExpenseDetails(expenseId) {
-    const expense = expenses.find(e => e.id === expenseId);
-    if (!expense) return;
-    
-    const expenseDate = new Date(expense.date);
-    const formattedDate = expenseDate.toLocaleDateString('en-IN', {
-        weekday: 'long',
-        day: '2-digit',
-        month: 'long',
-        year: 'numeric'
-    });
-    
-    document.getElementById('expense-details-date').textContent = formattedDate;
-    document.getElementById('expense-details-category').textContent = expense.category;
-    document.getElementById('expense-details-amount').textContent = 
-        `₹${expense.amount.toLocaleString('en-IN')}`;
-    document.getElementById('expense-details-description').textContent = 
-        expense.description || 'No description';
-    document.getElementById('expense-details-payment-source').textContent = expense.paymentSource;
-    
-    // Show/hide bank details based on payment method
-    const bankContainer = document.getElementById('expense-details-bank-container');
-    const upiContainer = document.getElementById('expense-details-upi-container');
-    
-    if (expense.category === 'Bank Transfer' && expense.bank) {
-        bankContainer.style.display = 'block';
-        document.getElementById('expense-details-bank').textContent = expense.bank;
-    } else {
-        bankContainer.style.display = 'none';
-    }
-    
-    if (expense.paymentSource === 'UPI' && expense.upiBank) {
-        upiContainer.style.display = 'block';
-        document.getElementById('expense-details-upi-bank').textContent = expense.upiBank;
-    } else {
-        upiContainer.style.display = 'none';
-    }
-    
-    // Set up edit button
-    document.getElementById('edit-expense-button').onclick = () => {
-        detailsModal.hide();
-        editExpense(expense.id);
-    };
-    
-    document.getElementById('delete-expense-button').onclick = () => {
-        if (confirm('Are you sure you want to delete this expense?')) {
-            deleteExpense(expense.id);
-            detailsModal.hide();
-        }
-    };
-    
-    // Show the details modal
-    detailsModal.show();
-}
-
-function editExpense(expenseId) {
-    const expense = expenses.find(e => e.id === expenseId);
-    if (!expense) return;
-    
-    currentEditingId = expenseId;
-    
-    // Fill the edit form
-    document.getElementById('edit-expense-id').value = expense.id;
-    document.getElementById('edit-date').value = expense.date;
-    document.getElementById('edit-category').value = expense.category;
-    document.getElementById('edit-bank').value = expense.bank || '';
-    document.getElementById('edit-amount').value = expense.amount;
-    document.getElementById('edit-description').value = expense.description || '';
-    document.getElementById('edit-payment-source').value = expense.paymentSource;
-    document.getElementById('edit-upi-bank').value = expense.upiBank || '';
-    
-    // Show/hide bank fields
-    document.getElementById('edit-bank-field').style.display = 
-        expense.category === 'Bank Transfer' ? 'block' : 'none';
-    document.getElementById('edit-upi-bank-field').style.display = 
-        expense.paymentSource === 'UPI' ? 'block' : 'none';
-    
-    // Show the edit modal
-    editModal.show();
-}
-
-function saveEditedExpense() {
-    const expenseId = currentEditingId;
-    const expenseIndex = expenses.findIndex(e => e.id === expenseId);
-    
-    if (expenseIndex === -1) return;
-    
-    // Validate amount
-    const amount = parseFloat(document.getElementById('edit-amount').value);
-    if (isNaN(amount)) {  // Fixed syntax error here
-        showToast('Please enter a valid amount', 'error');
-        return;
-    }
-
-    // Get edited values
-    const editedExpense = {
-        id: expenseId,
-        date: document.getElementById('edit-date').value,
-        category: document.getElementById('edit-category').value,
-        bank: document.getElementById('edit-category').value === 'Bank Transfer' ? 
-              document.getElementById('edit-bank').value : '',
-        upiBank: document.getElementById('edit-payment-source').value === 'UPI' ?
-                document.getElementById('edit-upi-bank').value : '',
-        amount: amount,
-        description: document.getElementById('edit-description').value,
-        paymentSource: document.getElementById('edit-payment-source').value
-    };
-    
-    // Update the expense
-    expenses[expenseIndex] = editedExpense;
-    saveExpenses();
-    
-    // Update UI
-    updateDashboard();
-    displayExpensesList();
-    
-    // Hide the edit modal
-    editModal.hide();
-    
-    // Show success feedback
-    showToast('Expense updated successfully!', 'success');
-}
-
-// Initialize modals when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize modal instances
-    detailsModal = new bootstrap.Modal(document.getElementById('expense-details-modal'));
-    editModal = new bootstrap.Modal(document.getElementById('edit-expense-modal'));
-    
-    // Set up form submission
-    document.getElementById('edit-expense-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        saveEditedExpense();
-    });
-});
-
-        function deleteExpense(expenseId) {
-            expenses = expenses.filter(e => e.id !== expenseId);
-            saveExpenses();
-            
-            // Update UI
-            updateDashboard();
-            displayExpensesList();
-            
-            // Show success feedback
-            showToast('Expense deleted successfully!', 'success');
-        }
-
-        function updateDashboard() {
-            // Today's expenses
-            const today = new Date().toISOString().split('T')[0];
-            const todayExpenses = expenses
-                .filter(e => e.date === today)
-                .reduce((sum, e) => sum + e.amount, 0);
-            document.getElementById('today-expense').textContent = 
-                `₹${todayExpenses.toLocaleString('en-IN')}`;
-            
-            // This month's expenses
-            const currentMonth = new Date().getMonth();
-            const currentYear = new Date().getFullYear();
-            const monthExpenses = expenses
-                .filter(e => {
-                    const expenseDate = new Date(e.date);
-                    return expenseDate.getMonth() === currentMonth && 
-                           expenseDate.getFullYear() === currentYear;
-                })
-                .reduce((sum, e) => sum + e.amount, 0);
-            document.getElementById('month-expense').textContent = 
-                `₹${monthExpenses.toLocaleString('en-IN')}`;
-            
-            // Total saved (placeholder - you might want to calculate based on income)
-            const totalSaved = 50000 - expenses.reduce((sum, e) => sum + e.amount, 0);
-            document.getElementById('total-saved').textContent = 
-                `₹${Math.max(0, totalSaved).toLocaleString('en-IN')}`;
-        }
-
-        function saveExpenses() {
-            localStorage.setItem('expenses', JSON.stringify(expenses));
-        }
-
-        function exportExpenses() {
-            const categoryFilter = document.getElementById('category-filter').value;
-            const startDate = document.getElementById('start-date').value;
-            const endDate = document.getElementById('end-date').value;
-            
-            const filteredExpenses = expenses.filter(expense => {
-                const matchesCategory = !categoryFilter || expense.category === categoryFilter;
-                const matchesStartDate = !startDate || expense.date >= startDate;
-                const matchesEndDate = !endDate || expense.date <= endDate;
-                return matchesCategory && matchesStartDate && matchesEndDate;
-            });
-            
-            if (filteredExpenses.length === 0) {
-                showToast('No expenses to export', 'warning');
-                return;
-            }
-            
-            // Convert to CSV
-            let csv = 'Date,Category,Amount,Description,Payment Method,Bank,UPI Bank\n';
-            filteredExpenses.forEach(expense => {
-                csv += `"${expense.date}","${expense.category}","${expense.amount}","${expense.description || ''}",`;
-                csv += `"${expense.paymentSource}","${expense.bank || ''}","${expense.upiBank || ''}"\n`;
-            });
-            
-            // Create download link
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.setAttribute('href', url);
-            link.setAttribute('download', `expenses_${new Date().toISOString().slice(0, 10)}.csv`);
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            showToast('Expenses exported successfully!', 'success');
-        }
-
-        function initCharts() {
-            const categoryCtx = document.getElementById('categoryChart').getContext('2d');
-            const monthlyCtx = document.getElementById('monthlyTrendChart').getContext('2d');
-            
-            categoryChart = new Chart(categoryCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        data: [],
-                        backgroundColor: [
-                            '#4361ee',
-                            '#3f37c9',
-                            '#4cc9f0',
-                            '#4895ef',
-                            '#560bad',
-                            '#b5179e',
-                            '#f72585',
-                            '#7209b7',
-                            '#3a0ca3',
-                            '#4361ee'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'right',
-                        },
-                        title: {
-                            display: true,
-                            text: 'Expenses by Category',
-                            font: {
-                                size: 16
-                            }
-                        }
-                    }
-                }
-            });
-            
-            monthlyTrendChart = new Chart(monthlyCtx, {
-                type: 'line',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        label: 'Monthly Expenses',
-                        data: [],
-                        backgroundColor: 'rgba(67, 97, 238, 0.2)',
-                        borderColor: 'rgba(67, 97, 238, 1)',
-                        borderWidth: 2,
-                        tension: 0.4,
-                        fill: true
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Monthly Trend',
-                            font: {
-                                size: 16
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        }
-
-        function updateCharts() {
-            // Update category chart
-            const categories = {};
-            expenses.forEach(expense => {
-                categories[expense.category] = (categories[expense.category] || 0) + expense.amount;
-            });
-            
-            categoryChart.data.labels = Object.keys(categories);
-            categoryChart.data.datasets[0].data = Object.values(categories);
-            categoryChart.update();
-            
-            // Update monthly trend chart
-            const monthlyData = {};
-            const currentYear = new Date().getFullYear();
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            
-            expenses.forEach(expense => {
-                const date = new Date(expense.date);
-                if (date.getFullYear() === currentYear) {
-                    const month = date.getMonth();
-                    monthlyData[month] = (monthlyData[month] || 0) + expense.amount;
-                }
-            });
-            
-            const monthlyValues = [];
-            for (let i = 0; i < 12; i++) {
-                monthlyValues.push(monthlyData[i] || 0);
-            }
-            
-            monthlyTrendChart.data.labels = months;
-            monthlyTrendChart.data.datasets[0].data = monthlyValues;
-            monthlyTrendChart.update();
-        }
-
-        function getCategoryClass(category) {
-            switch(category) {
-                case 'Food': return 'category-food';
-                case 'Transportation': return 'category-transportation';
-                case 'Bank Transfer': return 'category-bank';
-                default: return 'category-other';
-            }
-        }
-
-        function getPaymentIcon(paymentMethod) {
-            switch(paymentMethod) {
-                case 'Cash': return 'money-bill-wave';
-                case 'Credit Card': return 'credit-card';
-                case 'Debit Card': return 'credit-card';
-                case 'Net Banking': return 'university';
-                case 'UPI': return 'mobile-alt';
-                case 'Wallet': return 'wallet';
-                case 'Cheque': return 'file-invoice';
-                default: return 'money-bill-wave';
-            }
-        }
-
-        function showToast(message, type) {
-            // In a real app, you might use a proper toast library
-            alert(`${type.toUpperCase()}: ${message}`);
-        }
-    </script>
-  <footer style="text-align:center; padding:10px; background-color:#f0f0f0; font-family:sans-serif; font-size:14px; color:#555;">
-    Developed by Kuldip Gaj2ar
-</footer>
+    <script src="app.js"></script>
 </body>
 </html>
