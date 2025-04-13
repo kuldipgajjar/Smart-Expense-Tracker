@@ -1,0 +1,410 @@
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4cc9f0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --success-color: #4bb543;
+    --danger-color: #ff3333;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --text-color: #212529;
+    --bg-color: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --card-bg: rgba(255, 255, 255, 0.9);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color);
+    min-height: 100vh;
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-theme {
+    --text-color: #f8f9fa;
+    --bg-color: #121212;
+    --card-bg: rgba(30, 30, 30, 0.9);
+    background: var(--bg-color);
+}
+
+/* Layout Components */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s ease;
+    padding-top: 10%;
+}
+
+.dark-theme .glass-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Form Elements */
+.form-control, .form-select {
+    border-radius: 10px;
+    padding: 12px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.dark-theme .form-control,
+.dark-theme .form-select {
+    background-color: #333;
+    color: #fff;
+    border-color: #444;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.dark-theme .btn-close {
+    filter: invert(1);
+}
+
+/* Expense List */
+#expenses-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.expense-item {
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s;
+    position: relative;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.dark-theme .expense-item {
+    background: rgba(50, 50, 50, 0.7);
+}
+
+.expense-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(5px);
+}
+
+.dark-theme .expense-item:hover {
+    background: rgba(70, 70, 70, 0.9);
+}
+
+/* Category Tags */
+.expense-category {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.category-food {
+    background-color: rgba(75, 181, 67, 0.2);
+    color: var(--success-color);
+}
+
+.category-transportation {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: var(--warning-color);
+}
+
+.category-bank {
+    background-color: rgba(23, 162, 184, 0.2);
+    color: var(--info-color);
+}
+
+.category-other {
+    background-color: rgba(108, 117, 125, 0.2);
+    color: var(--dark-color);
+}
+
+/* Stats Cards */
+.stats-card {
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.stats-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.stats-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* Budget System */
+.budget-progress {
+    margin-top: 15px;
+}
+
+.budget-progress .progress {
+    height: 10px;
+    border-radius: 5px;
+}
+
+.dark-theme .budget-progress .progress {
+    background-color: #333;
+}
+
+.budget-progress .progress-bar {
+    transition: width 0.6s ease;
+}
+
+/* Goals Section */
+#goals-list {
+    display: grid;
+    gap: 15px;
+}
+
+.goal-item {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.dark-theme .goal-item {
+    background: rgba(50, 50, 50, 0.7);
+}
+
+.goal-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Add to your CSS */
+.goal-item .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+.goal-item .btn i {
+    margin-right: 0.1rem;
+}
+
+.add-funds-btn {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+}
+
+/* Add to your CSS */
+.chart-container {
+    height: 400px;
+    position: relative;
+    margin: 20px 0;
+}
+
+#reports h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+#reports h5 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+#category-trend-select {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.dark-theme #category-trend-select {
+    background-color: #333;
+    border-color: #444;
+}
+
+/* Receipt Capture */
+#receipt-preview {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 100%;
+}
+
+#receipt-image {
+    max-height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#receipt-ocr-result {
+    min-height: 80px;
+}
+
+/* Payment Animation */
+.payment-animation {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-weight: bold;
+    animation: pulse 0.5s ease-in-out;
+}
+
+.payment-animation .payment-category {
+    font-size: 0.8em;
+    opacity: 0.8;
+}
+
+/* Alerts */
+#alerts-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+    max-width: 400px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.modal.fade .modal-dialog {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.dark-theme ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(67, 97, 238, 0.5);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .expense-item {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .stats-card {
+        padding: 15px;
+    }
+    
+    .chart-container {
+        height: 300px;
+    }
+    
+    #categoryChart {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .modal-dialog {
+        margin: 10px;
+    }
+    
+    .filter-row .col-md-6 {
+        margin-bottom: 10px;
+    }
+    
+    .stats-value {
+        font-size: 1.5rem;
+    }
+
+    #alerts-container {
+        left: 20px;
+        right: 20px;
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-card {
+        padding: 15px 10px;
+    }
+    
+    .stats-value {
+        font-size: 1.3rem;
+    }
+    
+    .chart-container {
+        height: 200px;
+    }
+    
+    .modal-dialog {
+        margin: 5px;
+    }
+    
+    .chart-container {
+        height: 200px;
+    }
+    
+    /* Stack charts vertically on mobile */
+    #reports .row > div {
+        margin-bottom: 2rem;
+    }
+}
