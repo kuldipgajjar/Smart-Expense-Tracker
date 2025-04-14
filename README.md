@@ -53,7 +53,7 @@
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/Smart-Expense-Tracker.git
+   git clone https://github.com/kuldipgajjar/Smart-Expense-Tracker.git
    ```
 2. Open `index.html` in your browser
 
